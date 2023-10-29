@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Read and Sort CSV File</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <button id="loadCSV">Load CSV</button>
+    <button id="sortAscending">Sort Ascending</button>
+    <button id="sortDescending">Sort Descending</button>
+
+    <script>
+        // -- Referensi --
+        // https://www.papaparse.com/
+        // https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+        // ChatGPT - Untuk Optimasi Kodingan
+        const csvFilePath = 'database/ufo_data_clean.csv';
+        const loadCSVButton = document.getElementById('loadCSV');
+        const sortAscendingButton = document.getElementById('sortAscending');
+        const sortDescendingButton = document.getElementById('sortDescending');
+        const csvTable = document.createElement('table');
+        document.body.appendChild(csvTable);
+
+        let pageSize = 4000; // Number of rows to display at a time
+        let currentStartIndex = 0; // Track the starting index of the displayed data
+        let currentSortColumn = null;
+        let sortAscending = true;
+
+        loadCSVButton.addEventListener('click', readCSVFile);
+        sortAscendingButton.addEventListener('click', () => sortData(currentSortColumn, true));
+        sortDescendingButton.addEventListener('click', () => sortData(currentSortColumn, false));
+
+        function readCSVFile() {
+            fetch(csvFilePath)
+                .then(response => response.text())
+                .then(data => {
+                    const parsedData = Papa.parse(data, { header: true }).data; // Use header row as column names
+                    displayCSV(parsedData);
+                })
+                .catch(error => {
+                    console.error('Error loading CSV file:', error);
+                });
+        }
+
+        function displayCSV(data) {
+            // Clear the previous table
+            while (csvTable.firstChild) {
+                csvTable.removeChild(csvTable.firstChild);
+            }
+
+            const headerRow = document.createElement('tr');
+            for (const key of Object.keys(data[0])) {
+                if (key !== 'comments') {
+                    const th = document.createElement('th');
+                    th.textContent = key;
+                    th.addEventListener('click', () => sortData(key));
+                    headerRow.appendChild(th);
+                }
+            }
+            csvTable.appendChild(headerRow);
+
+            const endIndex = currentStartIndex + pageSize;
+            for (let i = currentStartIndex; i < Math.min(endIndex, data.length); i++) {
+                const row = data[i];
+                const tr = document.createElement('tr');
+                for (const key of Object.keys(row)) {
+                    if (key !== 'comments') {
+                        const td = document.createElement('td');
+                        td.textContent = row[key];
+                        tr.appendChild(td);
+                    }
+                }
+                csvTable.appendChild(tr);
+            }
+
+            if (endIndex < data.length) {
+                currentStartIndex = endIndex;
+            }
+        }
+
+        function sortData(column, ascending) {
+            currentSortColumn = column;
+            sortAscending = ascending;
+            readCSVFile(); // Re-read and display the data, now sorted
+        }
+
+    </script>
+</body>
+</html>

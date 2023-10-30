@@ -16,7 +16,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-color: #8e1212;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -24,7 +24,7 @@ header {
 
 nav ul {
     list-style: none;
-    background-color: #333;
+    background-color: #8e1212;
     text-align: center;
     padding: 10px;
 }
@@ -32,6 +32,10 @@ nav ul {
 nav ul li {
     display: inline;
     margin-right: 20px;
+}
+
+nav ul li :hover {
+    font-weight: bolder;
 }
 
 nav a {
@@ -53,7 +57,7 @@ section {
 }
 
 footer {
-    background-color: #333;
+    background-color: #8e1212;
     color: #fff;
     text-align: center;
     padding: 10px;

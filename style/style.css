@@ -90,3 +90,52 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #e6e6e6;
 }
+
+#canvasShapeUFO {
+    border: 2px solid black;
+}
+
+#chart1 {
+    border: 1px solid black;
+}
+
+#chart2 {
+    border: 1px solid black;
+}
+
+.split-container {
+    display: flex; 
+}
+
+.split {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left {
+    background-color: #f2f2f2;
+}
+
+.right {
+    background-color: #e6e6e6;
+}
+
+/* Style the select element */
+.custom-select {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+    border: 2px solid #666;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+/* Style the select element's options */
+.custom-select option {
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+}

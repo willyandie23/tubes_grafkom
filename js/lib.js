@@ -154,3 +154,118 @@ export function cylinderUFO(imageDataSaya) {
   ellipse_polar(imageDataSaya,200,150,100,50,255,0,0)
   ellipse_polar(imageDataSaya,200,250,100,50,255,0,0)
 }
+
+export function countDataShape(data) {
+  let countShapeCylinder = 0;
+  let countShapeLight = 0;
+  let countShapeCircle = 0;
+  let countShapeSphere = 0;
+  let countShapeDisk = 0;
+  let countShapeFireball = 0;
+  let countShapeOval = 0;
+  let countShapeCigar = 0;
+  let countShapeRectangle = 0;
+  let countShapeChevron = 0;
+  let countShapeTriangle = 0;
+  let countShapeFormation = 0;
+  let countShapeDelta = 0;
+  let countShapeChanging = 0;
+  let countShapeEgg = 0;
+  let countShapeDiamond = 0;
+  let countShapeFlash = 0;
+  let countShapeTeardrop = 0;
+  let countShapeCone = 0;
+  let countShapeCross = 0;
+  let myList = [];
+
+
+  let checkData;
+  const table = document.createElement("table");
+  const headerRow = table.insertRow(0);
+  for (const key in data[0]) {
+    const headerCell = headerRow.insertCell(-1);
+    headerCell.textContent = key;
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    const row = table.insertRow(i + 1);
+    for (const key in data[i]) {
+      const cell = row.insertCell(-1);
+      cell.textContent = data[i][key];
+    }
+
+    checkData = data[i]["shape"];
+    if(checkData == "cylinder") {
+      countShapeCylinder += 1;
+    } else if (checkData == "light") {
+      countShapeLight += 1;
+    } else if (checkData == "circle") {
+      countShapeCircle += 1;
+    } else if (checkData == "sphere") {
+      countShapeSphere += 1;
+    } else if (checkData == "disk") {
+      countShapeDisk += 1;
+    } else if (checkData == "fireball") {
+      countShapeFireball += 1;
+    } else if (checkData == "oval") {
+      countShapeOval += 1;
+    } else if (checkData == "cigar") {
+      countShapeCigar += 1;
+    } else if (checkData == "rectangle") {
+      countShapeRectangle += 1;
+    } else if (checkData == "chevron") {
+      countShapeChevron += 1;
+    } else if (checkData == "triangle") {
+      countShapeTriangle += 1;
+    } else if (checkData == "formation") {
+      countShapeTriangle += 1;
+    } else if (checkData == "delta") {
+      countShapeDelta += 1;
+    } else if (checkData == "changing") {
+      countShapeChanging += 1;
+    } else if (checkData == "egg") {
+      countShapeEgg += 1;
+    } else if (checkData == "diamond") {
+      countShapeDiamond += 1;
+    } else if (checkData == "flash") {
+      countShapeFlash += 1;
+    } else if (checkData == "teardrop") {
+      countShapeTeardrop += 1;
+    } else if (checkData == "cone") {
+      countShapeCone += 1;
+    } else if (checkData == "cross") {
+      countShapeCross += 1;
+    } 
+
+  }
+
+  myList = [countShapeCylinder, countShapeLight, countShapeCircle ,countShapeSphere, countShapeDisk, countShapeFireball, countShapeOval, countShapeCigar, countShapeRectangle, countShapeChevron, countShapeTriangle, countShapeFormation, countShapeDelta, countShapeChanging, countShapeEgg, countShapeDiamond, countShapeFlash, countShapeTeardrop, countShapeCone, countShapeCross]
+  return myList;
+}
+
+export function dataShapeUfo(data) {
+  let myList = [];
+
+  let checkData;
+  const table = document.createElement("table");
+  const headerRow = table.insertRow(0);
+  for (const key in data[0]) {
+    const headerCell = headerRow.insertCell(-1);
+    headerCell.textContent = key;
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    const row = table.insertRow(i + 1);
+    for (const key in data[i]) {
+      const cell = row.insertCell(-1);
+      cell.textContent = data[i][key];
+    }
+
+    checkData = data[i]["shape"];
+    if(!myList.includes(checkData)) {
+      myList.push(checkData)
+    }
+  }
+
+  return myList;
+}

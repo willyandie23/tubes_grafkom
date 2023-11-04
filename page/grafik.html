@@ -4,11 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tugas Besar Grafika Komputer</title>
-    <style>
-      #canvasShapeUFO {
-        border: 2px solid black;
-      }
-    </style>
     <link rel="stylesheet" href="../style/style.css" />
   </head>
   <body>
@@ -32,9 +27,35 @@
           <canvas id="canvasShapeUFO" width="400" height="400"></canvas>
         </div>
       </section>
+
       <section>
         <h2>Dataset UFO</h2>
         <div id="csvDataContainer"></div>
+      </section>
+
+      <section id="section-chart">
+        <h2>Chart</h2>
+
+        <select id="selectChart" class="custom-select">
+          <option value="default">Default</option>
+          <option value="ascending">Ascending</option>
+          <option value="decending">Decending</option>
+        </select>
+
+        <div class="split-container">
+            <div class="split left">
+                <div class="centered">
+                    <canvas id="chart1" width="700" height="400"></canvas>
+                  </div>
+                </div>
+                
+                <div class="split right">
+                  <div class="centered">
+                    <canvas id="chart2" width="700" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+
       </section>
     </main>
 

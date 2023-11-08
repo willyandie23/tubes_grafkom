@@ -5,6 +5,8 @@
 
 // IMPORT FROM LIB
 import * as LibSaya from "./lib.js";
+import * as ufo from "./ufo.js";
+
 
 // CANVAS
 var canvasUFO = document.getElementById("canvasShapeUFO");
@@ -51,15 +53,83 @@ function displayData(data, csvDataContainer) {
         // GAMBAR DISINI
         if (shapeValue == "circle") { //CIRCLE
           clearCanvas();
-          LibSaya.lightUFO(imageDataSaya);
+          ufo.circleUFO(imageDataSaya,canvasUFO);
           ctx.putImageData(imageDataSaya, 0, 0);
         } else if (shapeValue == "light") { //LIGHT
           clearCanvas();
-          LibSaya.circleUFO(imageDataSaya);
+          ufo.lightUFO(imageDataSaya,canvasUFO);
           ctx.putImageData(imageDataSaya, 0, 0);
         } else if (shapeValue == "cylinder") { //CYLINDER
           clearCanvas();
-          LibSaya.cylinderUFO(imageDataSaya);
+          ufo.cylinderUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "sphere") { //SPHERE
+          clearCanvas();
+          ufo.sphereUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "disk") { //DISK
+          clearCanvas();
+          ufo.diskUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "fireball") { //FIREBALL
+          clearCanvas();
+          ufo.fireballUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "oval") { //OVAL
+          clearCanvas();
+          ufo.ovalUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "cigar") { //CIGAR
+          clearCanvas();
+          ufo.cigarUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "rectangle") { //RECTANGLE
+          clearCanvas();
+          ufo.rectangleUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "chevron") { //CHEVRON
+          clearCanvas();
+          ufo.chevronUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "triangle") { //TRIANGLE
+          clearCanvas();
+          ufo.triangleUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "formation") { //FORMATION
+          clearCanvas();
+          ufo.formationUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "delta") { //DELTA
+          clearCanvas();
+          ufo.deltaUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        }else if (shapeValue == "changing") { //CHANGING
+          clearCanvas();
+          ufo.changingUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "egg") { //EGG
+          clearCanvas();
+          ufo.eggUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "diamond") { //DIAMOND
+          clearCanvas();
+          ufo.diamondUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "flash") { //FLASH
+          clearCanvas();
+          ufo.flashUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "teardrop") { //TEARDROP
+          clearCanvas();
+          ufo.teardropUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "cone") { //CONE
+          clearCanvas();
+          ufo.coneUFO(imageDataSaya,canvasUFO);
+          ctx.putImageData(imageDataSaya, 0, 0);
+        } else if (shapeValue == "cross") { //CROSS
+          clearCanvas();
+          ufo.crossUFO(imageDataSaya,canvasUFO);
           ctx.putImageData(imageDataSaya, 0, 0);
         }
 

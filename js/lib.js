@@ -115,6 +115,16 @@ export function ellipse_polar(
   }
 }
 
+export function linkaran_polar(imageDataTemp,  xc, yc, radius, inc, r, g, b) {
+  for (var theta = 0; theta < Math.PI*2; theta += inc) {
+      var x = xc + radius * Math.cos(theta);
+      var y = yc + radius * Math.sin(theta);
+
+      gbr_titik(imageDataTemp, Math.ceil(x), Math.ceil(y), r, g, b);
+  }
+}
+
+
 // Function gbr_lingkaran
 export function gbr_lingkaran(imageDataSaya, xc, yc, radius, r, g, b) {
   for (var x = xc - radius; x < xc + radius; x++) {

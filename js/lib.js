@@ -107,7 +107,7 @@ export function ellipse_polar(
   g,
   b
 ) {
-  for (var theta = 0; theta < Math.PI * 2; theta += 0.01) {
+  for (var theta = 0; theta < Math.PI * 2; theta += 0.001) {
     var x = xc + radiusX * Math.cos(theta);
     var y = yc + radiusY * Math.sin(theta);
 
@@ -133,26 +133,31 @@ export function gbr_lingkaran(imageDataSaya, xc, yc, radius, r, g, b) {
   }
 }
 
-// lightUFO
-export function lightUFO(imageDataSaya) {
-  dda_line(imageDataSaya, 10, 10, 100, 100, 255, 0, 0);
-}
+export function floodFillStack(imageDataSaya, canvas, x0, y0, toFlood, color) {
+  var tumpukan = [];
+  tumpukan.push({ x: x0, y: y0 })
 
-// circleUFO
-export function circleUFO(imageDataSaya) {
-  var point_array = [
-    { x: 100, y: 100 },
-    { x: 150, y: 150 },
-    { x: 50, y: 150 },
-  ];
-  polygon(imageDataSaya, point_array, 225, 0, 0);
-}
+  while (tumpukan.length > 0) {
+    var titik_skrg = tumpukan.pop();
+    var index_skrg = 4 * (titik_skrg.x + titik_skrg.y * canvas.width)
 
-// cylinder
-export function cylinderUFO(imageDataSaya) {
-  // lingkaran_polar(imageDataSaya, 100, 100, 50, 255,0,0)
-  ellipse_polar(imageDataSaya,200,150,100,50,255,0,0)
-  ellipse_polar(imageDataSaya,200,250,100,50,255,0,0)
+    var r1 = imageDataSaya.data[index_skrg]
+    var g1 = imageDataSaya.data[index_skrg + 1]
+    var b1 = imageDataSaya.data[index_skrg + 2]
+
+    if ((r1 == toFlood.r) && (g1 == toFlood.g) && (b1 == toFlood.b)) {
+      imageDataSaya.data[index_skrg] = color.r
+      imageDataSaya.data[index_skrg + 1] = color.g
+      imageDataSaya.data[index_skrg + 2] = color.b
+      imageDataSaya.data[index_skrg + 3] = 255
+
+      tumpukan.push({ x: titik_skrg.x + 1, y: titik_skrg.y })
+      tumpukan.push({ x: titik_skrg.x - 1, y: titik_skrg.y })
+      tumpukan.push({ x: titik_skrg.x, y: titik_skrg.y + 1 })
+      tumpukan.push({ x: titik_skrg.x, y: titik_skrg.y - 1 })
+    }
+  }
+
 }
 
 export function countDataShape(data) {
@@ -195,11 +200,11 @@ export function countDataShape(data) {
     }
 
     checkData = data[i]["shape"];
-    if(checkData == "cylinder") {
+    if (checkData == "cylinder") { //
       countShapeCylinder += 1;
-    } else if (checkData == "light") {
+    } else if (checkData == "light") { //
       countShapeLight += 1;
-    } else if (checkData == "circle") {
+    } else if (checkData == "circle") { //
       countShapeCircle += 1;
     } else if (checkData == "sphere") {
       countShapeSphere += 1;
@@ -235,11 +240,11 @@ export function countDataShape(data) {
       countShapeCone += 1;
     } else if (checkData == "cross") {
       countShapeCross += 1;
-    } 
+    }
 
   }
 
-  myList = [countShapeCylinder, countShapeLight, countShapeCircle ,countShapeSphere, countShapeDisk, countShapeFireball, countShapeOval, countShapeCigar, countShapeRectangle, countShapeChevron, countShapeTriangle, countShapeFormation, countShapeDelta, countShapeChanging, countShapeEgg, countShapeDiamond, countShapeFlash, countShapeTeardrop, countShapeCone, countShapeCross]
+  myList = [countShapeCylinder, countShapeLight, countShapeCircle, countShapeSphere, countShapeDisk, countShapeFireball, countShapeOval, countShapeCigar, countShapeRectangle, countShapeChevron, countShapeTriangle, countShapeFormation, countShapeDelta, countShapeChanging, countShapeEgg, countShapeDiamond, countShapeFlash, countShapeTeardrop, countShapeCone, countShapeCross]
   return myList;
 }
 
@@ -262,7 +267,7 @@ export function dataShapeUfo(data) {
     }
 
     checkData = data[i]["shape"];
-    if(!myList.includes(checkData)) {
+    if (!myList.includes(checkData)) {
       myList.push(checkData)
     }
   }
@@ -289,7 +294,7 @@ export function dataCountry(data) {
     }
 
     checkData = data[i]["country"];
-    if(!myList.includes(checkData)) {
+    if (!myList.includes(checkData)) {
       myList.push(checkData)
     }
   }

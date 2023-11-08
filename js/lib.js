@@ -269,3 +269,115 @@ export function dataShapeUfo(data) {
 
   return myList;
 }
+
+export function dataCountry(data) {
+  let myList = [];
+
+  let checkData;
+  const table = document.createElement("table");
+  const headerRow = table.insertRow(0);
+  for (const key in data[0]) {
+    const headerCell = headerRow.insertCell(-1);
+    headerCell.textContent = key;
+  }
+
+  for (let i = 0; i < data.length; i++) {
+    const row = table.insertRow(i + 1);
+    for (const key in data[i]) {
+      const cell = row.insertCell(-1);
+      cell.textContent = data[i][key];
+    }
+
+    checkData = data[i]["country"];
+    if(!myList.includes(checkData)) {
+      myList.push(checkData)
+    }
+  }
+
+  return myList;
+}
+
+export function dataCountryUS(data) {
+  const filteredData = data.filter(item => item['country'] === 'us');
+  const shapeCounts = {};
+
+  for (let i = 0; i < filteredData.length; i++) {
+    const shape = filteredData[i]['shape'];
+
+    if (shape in shapeCounts) {
+      shapeCounts[shape] += 1;
+    } else {
+      shapeCounts[shape] = 1;
+    }
+  }
+
+  return shapeCounts;
+}
+
+export function dataCountryGB(data) {
+  const filteredData = data.filter(item => item['country'] === 'gb');
+  const shapeCounts = {};
+
+  for (let i = 0; i < filteredData.length; i++) {
+    const shape = filteredData[i]['shape'];
+
+    if (shape in shapeCounts) {
+      shapeCounts[shape] += 1;
+    } else {
+      shapeCounts[shape] = 1;
+    }
+  }
+
+  return shapeCounts;
+}
+
+export function dataCountryCA(data) {
+  const filteredData = data.filter(item => item['country'] === 'ca');
+  const shapeCounts = {};
+
+  for (let i = 0; i < filteredData.length; i++) {
+    const shape = filteredData[i]['shape'];
+
+    if (shape in shapeCounts) {
+      shapeCounts[shape] += 1;
+    } else {
+      shapeCounts[shape] = 1;
+    }
+  }
+
+  return shapeCounts;
+}
+
+export function dataCountryAU(data) {
+  const filteredData = data.filter(item => item['country'] === 'au');
+  const shapeCounts = {};
+
+  for (let i = 0; i < filteredData.length; i++) {
+    const shape = filteredData[i]['shape'];
+
+    if (shape in shapeCounts) {
+      shapeCounts[shape] += 1;
+    } else {
+      shapeCounts[shape] = 1;
+    }
+  }
+
+  return shapeCounts;
+}
+
+export function dataCountryDE(data) {
+  const filteredData = data.filter(item => item['country'] === 'de');
+  const shapeCounts = {};
+
+  for (let i = 0; i < filteredData.length; i++) {
+    const shape = filteredData[i]['shape'];
+
+    if (shape in shapeCounts) {
+      shapeCounts[shape] += 1;
+    } else {
+      shapeCounts[shape] = 1;
+    }
+  }
+
+  return shapeCounts;
+}

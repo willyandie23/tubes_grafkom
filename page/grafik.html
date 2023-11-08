@@ -37,10 +37,105 @@
         <h2>Chart</h2>
 
         <select id="selectChart" class="custom-select">
+          <option >-- Sort by --</option>
           <option value="default">Default</option>
           <option value="ascending">Ascending</option>
           <option value="decending">Decending</option>
         </select>
+
+        <select id="groupChart" class="custom-select">
+          <option value="none">-- Group By --</option>
+          <option value="us">US</option>
+          <option value="gb">GB</option>
+          <option value="ca">CA</option>
+          <option value="au">AU</option>
+          <option value="de">DE</option>
+        </select>
+
+        <div class="chart-container">
+          <div class="labels">
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(187, 68, 48);"></div>
+                  <div class="label-text">Cylinder</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(146, 213, 230);"></div>
+                  <div class="label-text">Light</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(119, 45, 139);"></div>
+                  <div class="label-text">Circle</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(161, 239 , 139);"></div>
+                  <div class="label-text">Sphere</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(255, 113, 91);"></div>
+                  <div class="label-text">Disk</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(249, 203, 64);"></div>
+                  <div class="label-text">Fireball</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(188, 237, 9);"></div>
+                  <div class="label-text">Oval</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(47, 82, 224);"></div>
+                  <div class="label-text">Cigar</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(147, 225, 216);"></div>
+                  <div class="label-text">Rectangle</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(255, 166, 158);"></div>
+                  <div class="label-text">Chevron</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(170, 68, 101);"></div>
+                  <div class="label-text">Triangle</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(70, 34, 85);"></div>
+                  <div class="label-text">Formation</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(8, 126, 139);"></div>
+                  <div class="label-text">Delta</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(255, 90, 95);"></div>
+                  <div class="label-text">Changing</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(60, 60, 60);"></div>
+                  <div class="label-text">Egg</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(15, 82, 87);"></div>
+                  <div class="label-text">Diamond</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(222, 84, 30);"></div>
+                  <div class="label-text">Flash</div>
+              </div> 
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(1, 22, 56);"></div>
+                  <div class="label-text">Teardrop</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(144, 85, 162);"></div>
+                  <div class="label-text">Cone</div>
+              </div>
+              <div class="label-box">
+                  <div class="color-box" style="background-color: rgb(31, 47, 22);"></div>
+                  <div class="label-text">Cross</div>
+              </div>   
+          </div>
+        </div>
 
         <div class="split-container">
             <div class="split left">
@@ -65,5 +160,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <script type="module" src="../js/index_web.js"></script>
+    <script type="module" src="../js/chart1.js"></script>
   </body>
 </html>

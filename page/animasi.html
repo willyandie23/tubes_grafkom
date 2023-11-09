@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tugas Besar Grafika Komputer</title>
     <link rel="stylesheet" href="../style/style.css">
 </head>
+
 <body>
     <header>
         <h1>Halaman Animasi</h1>
@@ -20,9 +22,50 @@
     </nav>
 
     <main>
-        <section style="text-align: center;">
-            <h2>COMING SOON</h2>
-            <p>Masih di maintenance gaes</p>
+        <section>
+            <div style="text-align: center">
+                <h2>Mari Menggambar</h2>
+                <canvas id="canvasDraw" width="400" height="400"></canvas>
+            </div>
+        </section>
+
+        <section>
+            <div style="text-align: center;">
+
+                <table style="text-align: left;" align="center">
+                    <tr>
+                        <td width="150">
+                            <h4>Color</h4>
+                        </td>
+                        <td>
+                            <div id="colorButtons">
+                                <button id="blackButton" style="background-color: black; color: black;">--</button>
+                                <button id="redButton" style="background-color: red; color: red;">--</button>
+                                <button id="greenButton" style="background-color: green; color: green;">--</button>
+                                <button id="blueButton" style="background-color: blue; color: blue;">--</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4>Brush Size</h4>
+                        </td>
+                        <td>
+                            <div>
+                                <input type="number" id="radiusInput" value="1" min="1" max="50">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h4><input type="checkbox" id="eraseCheckbox">Erase</h4>
+                        </td>
+                        <td>
+                            <button id="clearButton">Clear Canvas</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </section>
     </main>
 
@@ -30,6 +73,7 @@
         <p>&copy; 2023 My Simple Website</p>
     </footer>
 
-    <script type="module" src="../js/index_web.js"></script>
+    <script type="module" src="../js/index_animasi.js"></script>
 </body>
+
 </html>

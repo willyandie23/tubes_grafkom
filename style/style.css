@@ -91,7 +91,7 @@ tr:hover {
     background-color: #e6e6e6;
 }
 
-#canvasShapeUFO {
+#canvasShapeUFO, #canvasDraw {
     border: 2px solid black;
 }
 

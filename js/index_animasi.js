@@ -5,9 +5,9 @@ var ctx = canvasKita.getContext("2d");
 var imageDataSaya = ctx.getImageData(0, 0, canvasKita.width, canvasKita.height);
 
 
-var drawing = false; // To track if we are currently drawing
+var drawing = false; 
 var clearCanvas = false;
-var lastX, lastY; // To store the previous mouse coordinates
+var lastX, lastY;
 var currentColor = [0, 0, 0];
 var prevColor = [0, 0, 0];
 var radius = 1;
@@ -16,10 +16,8 @@ var radiusErase = 1;
 var fillColorEnabled = false;
 var eraseEnabled = false;
 
-
 var ctx;
 
-// Add mouse event listeners for drawing
 canvasKita.addEventListener("mousedown", function (event) {
     drawing = true;
     var rect = canvasKita.getBoundingClientRect();
@@ -34,7 +32,6 @@ canvasKita.addEventListener("click", function () {
 
     if (fillColorEnabled) {
         libAnimasi.floodFillStack(imageDataSaya, canvasKita, Math.ceil(x), Math.ceil(y), { r: 255, g: 255, b: 255 }, { r: 255, g: 0, b: 0 })
-        // console.log("Clicked at coordinates: (" + Math.ceil(x) + ", " + Math.ceil(y) + ")");
     }
 
 });
@@ -44,11 +41,6 @@ canvasKita.addEventListener("mousemove", function (event) {
     var rect = canvasKita.getBoundingClientRect();
     var x = event.clientX - rect.left;
     var y = event.clientY - rect.top;
-
-    // if (eraseEnabled) {
-    //     prevRadius = radius
-    //     radius = 20
-    // }
 
     var numPoints = Math.max(Math.abs(x - lastX), Math.abs(y - lastY));
     for (var i = 0; i < numPoints; i++) {
@@ -105,12 +97,6 @@ clearButton.addEventListener("click", function () {
     imageDataSaya = ctx.getImageData(0, 0, canvasKita.width, canvasKita.height);
 });
 
-// FILL
-// var fillColorCheckbox = document.querySelector("#fillColorCheckbox");
-// fillColorCheckbox.addEventListener("change", function () {
-//     fillColorEnabled = fillColorCheckbox.checked;
-// });
-
 // ERASE
 var eraseCheckbox = document.querySelector("#eraseCheckbox");
 eraseCheckbox.addEventListener("change", function () {
@@ -119,13 +105,10 @@ eraseCheckbox.addEventListener("change", function () {
     if (eraseEnabled) {
         prevColor = currentColor
         prevRadius = radius
-        currentColor = [255, 255, 255]; // White
+        currentColor = [255, 255, 255];
         radius = 5
     } else {
         radius = prevRadius
-        currentColor = prevColor; // Back to drawing color (e.g., Black)
+        currentColor = prevColor;
     }
-
-    // currentColor = [255, 255, 255]; // Red
-    // eraseEnabled = eraseCheckbox.checked;
 });
